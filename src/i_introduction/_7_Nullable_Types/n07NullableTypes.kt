@@ -13,10 +13,8 @@ fun test() {
 }
 
 fun todoTask7(client: Client?, message: String?, mailer: Mailer) {
-    if(client != null
-            && message != null
-            && client.personalInfo != null
-            && client.personalInfo.email != null) {
+    val email: String? = client?.personalInfo?.email
+    if(email != null && message != null) {
         mailer.sendMessage(client.personalInfo.email, message)
     }
 }
