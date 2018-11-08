@@ -12,15 +12,14 @@ fun test() {
     val j: Int = q?.length ?: 0  // 0
 }
 
-fun todoTask7(client: Client?, message: String?, mailer: Mailer): Nothing = TODO(
-    """
-        Task 7.
-        Rewrite JavaCode7.sendMessageToClient in Kotlin, using only one 'if' expression.
-        Declarations of Client, PersonalInfo and Mailer are given below.
-    """,
-    documentation = doc7(),
-    references = { JavaCode7().sendMessageToClient(client, message, mailer) }
-)
+fun todoTask7(client: Client?, message: String?, mailer: Mailer) {
+    if(client != null
+            && message != null
+            && client.personalInfo != null
+            && client.personalInfo.email != null) {
+        mailer.sendMessage(client.personalInfo.email, message)
+    }
+}
 
 fun sendMessageToClient(
         client: Client?, message: String?, mailer: Mailer
