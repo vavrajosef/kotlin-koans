@@ -1,8 +1,5 @@
 package i_introduction._7_Nullable_Types
 
-import util.TODO
-import util.doc7
-
 fun test() {
     val s: String = "this variable cannot store null references"
     val q: String? = null
