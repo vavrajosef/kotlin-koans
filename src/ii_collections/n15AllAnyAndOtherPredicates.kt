@@ -15,25 +15,26 @@ fun example2(list: List<Int>) {
 
 fun Customer.isFrom(city: City): Boolean {
     // Return true if the customer is from the given city
-    todoCollectionTask()
+    return this.city.name == city.name
 }
 
 fun Shop.checkAllCustomersAreFrom(city: City): Boolean {
     // Return true if all customers are from the given city
-    todoCollectionTask()
+    this.customers.forEach { if(it.city.name != city.name) return false }
+    return true
 }
 
 fun Shop.hasCustomerFrom(city: City): Boolean {
     // Return true if there is at least one customer from the given city
-    todoCollectionTask()
+    return this.customers.find { it.city.name == city.name } != null
 }
 
 fun Shop.countCustomersFrom(city: City): Int {
     // Return the number of customers from the given city
-    todoCollectionTask()
+    return this.customers.filter { it.city.name == city.name }.size
 }
 
 fun Shop.findFirstCustomerFrom(city: City): Customer? {
     // Return the first customer who lives in the given city, or null if there is none
-    todoCollectionTask()
+    return this.customers.firstOrNull { it.city.name == city.name}
 }
